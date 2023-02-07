@@ -1,12 +1,20 @@
 package main
 
 import (
-	"codesejin/golearn/accounts"
+	"codesejin/golearn/mydict"
 	"fmt"
 )
 
 func main() {
-	account := accounts.NewAccount("nico")
-	account.Deposit(10)
-	fmt.Println(account)
+	dictionary := mydict.Dictionary{}
+	basWord := "hello"
+	dictionary.Add(basWord, "First")
+	dictionary.Search(basWord)
+	dictionary.Delete(basWord)
+	word, err := dictionary.Search(basWord)
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println(word, err)
+	}
 }
